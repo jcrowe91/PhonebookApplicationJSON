@@ -6,7 +6,7 @@ namespace PhonebookApplicationJSON
     {
         static void Main(string[] args)
         {
-
+            ConsoleLogging.MainConsole();
         }
     }
 }
