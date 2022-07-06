@@ -8,7 +8,7 @@ namespace PhonebookApplicationJSON
 {
     public class UserInterface
     {
-        public static void MainMenu()
+        public static void MainMenu(List<Contact> contacts)
         {
             ConsoleLogging.Greeting();
 
@@ -20,7 +20,9 @@ namespace PhonebookApplicationJSON
 
             if (userAnswer == "1") //View all
             {
-                Console.WriteLine("View all");
+                ConsoleLogging.CRUDForEachLoop(contacts);
+                ConsoleLogging.PassMessage("Press ENTER to continue");
+                Console.ReadLine();
                 ConsoleLogging.ClearConsole();
             }
             else if (userAnswer == "2") //Create

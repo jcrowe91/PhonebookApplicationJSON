@@ -18,11 +18,11 @@ namespace PhonebookApplicationJSON
             Console.WriteLine(message);
         }
 
-        public static void MainConsole()
+        public static void MainConsole(List<Contact> contacts)
         {
             while (true)
             {
-                UserInterface.MainMenu();
+                UserInterface.MainMenu(contacts);
             }
         }
 
@@ -40,6 +40,16 @@ namespace PhonebookApplicationJSON
         public static void InvalidResponse()
         {
             ConsoleLogging.PassMessage("Please enter a valid response");
+        }
+
+        public static void CRUDForEachLoop(List<Contact> contacts)
+        {
+            ConsoleLogging.ClearConsole();
+            foreach(var contact in contacts)
+            {
+                Console.WriteLine($"Name: {contact.FirstName} {contact.LastName}\nEmail: {contact.Email}\nPhone Number: {contact.PhoneNumber}");
+                Console.WriteLine("-----------------------");
+            }
         }
     }
 }
