@@ -27,8 +27,10 @@ namespace PhonebookApplicationJSON
             }
             else if (userAnswer == "2") //Create
             {
-                Console.WriteLine("Create");
                 ConsoleLogging.ClearConsole();
+                var newContact = ContactCreator();
+                contacts.Add(newContact);
+                
             }
             else if (userAnswer == "3") //Update
             {
@@ -42,12 +44,29 @@ namespace PhonebookApplicationJSON
             }
             else if (userAnswer == "5") //Save and Exit
             {
+                FileManipulation.SaveContacts(contacts);
                 ConsoleLogging.ExitMessage();
             }
             else //Not a choice
             {
                 ConsoleLogging.InvalidResponse();
             }
+        }
+
+        public static Contact ContactCreator()
+        {
+            Console.WriteLine("Create a new contact:");
+            var contact = new Contact();
+            Console.WriteLine("What is the first name of the new contact?");
+            contact.FirstName = Console.ReadLine();
+            Console.WriteLine("What is the last name of the new contact?");
+            contact.LastName = Console.ReadLine();
+            Console.WriteLine("What is this contact's phone number?");
+            contact.PhoneNumber = Console.ReadLine();
+            Console.WriteLine("What is the email for the new contact?");
+            contact.Email = Console.ReadLine();
+
+            return contact;
         }
     }
 }
