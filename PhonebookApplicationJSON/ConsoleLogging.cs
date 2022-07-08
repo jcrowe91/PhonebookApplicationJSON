@@ -51,5 +51,16 @@ namespace PhonebookApplicationJSON
                 Console.WriteLine("-----------------------");
             }
         }
+
+        public static void CRUDForLoop(List<Contact> contacts)
+        {
+            //used in update and delete methods
+            for (int i = 0; i < contacts.Count; i++)
+            {
+                //loop through each contact, assign an ID number, and display the properties of each
+                Console.WriteLine($"ID: {i + 1} {contacts[i].FirstName} {contacts[i].LastName}\nPhone Number: {contacts[i].PhoneNumber}\nEmail Address: {contacts[i].Email}");
+                Console.WriteLine("-----------------------------");
+            }
+        }
     }
 }
